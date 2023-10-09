@@ -147,11 +147,11 @@ Online Demo: [https://omaghd.com/projects/otickets](https://omaghd.com/projects/
 
    ```env
    DB_CONNECTION=mysql
-   DB_HOST=
-   DB_PORT=
-   DB_DATABASE=
-   DB_USERNAME=
-   DB_PASSWORD=
+   DB_HOST=localhost
+   DB_PORT=3306
+   DB_DATABASE=oticket
+   DB_USERNAME=root
+   DB_PASSWORD=<your root password>
    ```
 
 5. Generate an app encryption key
@@ -166,20 +166,20 @@ Online Demo: [https://omaghd.com/projects/otickets](https://omaghd.com/projects/
    cd path/to/backend && php artisan migrate --seed
    ```
 
-7. Launch the backend
-
-   ```bash
-   cd path/to/backend && php artisan serve
-   ```
-
-8. Change the .env file in the frontend to point to the backend
+7. Change the .env file in the frontend to point to the backend
 
    ```env
    VITE_API_URL='http://127.0.0.1:8000/'
    VITE_API_URL_API='http://127.0.0.1:8000/api/'
    ```
 
-9. Launch the backend and frontend in separate terminals
+   If you are unable to login, check backend/.env file. Look for the line APP_URL and set it to your frontend Vite app URL.  By default it is as follows:
+
+   ```
+   APP_URL=http://localhost:5173
+   ```
+
+8. Launch the backend and frontend in separate terminals
 
    ```bash
    cd path/to/frontend && npm run dev
@@ -189,13 +189,13 @@ Online Demo: [https://omaghd.com/projects/otickets](https://omaghd.com/projects/
    cd path/to/backend && php artisan serve
    ```
 
-10. Visit the application
+9. Visit the application frontend URL
 
     ```bash
-    http://localhost:8000
+    http://localhost:5173
     ```
 
-11. Link the storage folder in the backend
+10. Link the storage folder in the backend
 
     ```bash
     cd path/to/backend && php artisan storage:link
